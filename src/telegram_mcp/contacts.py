@@ -377,10 +377,10 @@ async def import_contacts(contacts: list) -> str:
     """
     try:
         input_contacts = [
-            functions.contacts.InputPhoneContact(
+            types.InputPhoneContact(
                 client_id=i,
-                phone=c["phone"],
-                first_name=c["first_name"],
+                phone=c.get("phone", ""),
+                first_name=c.get("first_name", ""),
                 last_name=c.get("last_name", ""),
             )
             for i, c in enumerate(contacts)
